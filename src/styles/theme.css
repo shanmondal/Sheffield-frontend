@@ -1,0 +1,14 @@
+:root {
+  --primary-blue: #0a4a9e;
+  --secondary-blue: #1e63c6;
+  --accent-blue: #3d82e6;
+
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
