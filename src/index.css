@@ -13,3 +13,21 @@ body {
   font-family: var(--font-body);
   background: #ffffff;
 }
+.hero-swiper .swiper-pagination {
+  bottom: 20px !important;
+}
+
+.hero-swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: #0a4a9e;
+  opacity: 0.4;
+}
+
+.hero-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+.hero-swiper .swiper-slide {
+  overflow: hidden;
+}
