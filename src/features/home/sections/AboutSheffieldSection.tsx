@@ -3,7 +3,7 @@ import blades from "@/assets/images/blade.jpeg";
 
 export const AboutSheffieldSection = () => {
   return (
-    <section className="bg-gradient-to-b from-white to-slate-50 py-16 md:py-24">
+    <section className="bg-gradient-to-b from-white to-slate-50 lg:py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
 
         {/* Heading */}
@@ -82,17 +82,17 @@ export const AboutSheffieldSection = () => {
         </div>
 
         {/* Mobile */}
-        <div className="space-y-8 lg:hidden">
+        <div className="space-y-8 lg:hidden ">
 <div className="flex flex-col ">
-<div className="overflow-hidden rounded-3xl  rounded-b-none shadow-lg">
+{/* <div className="overflow-hidden rounded-3xl  rounded-b-none shadow-lg">
             <img
               src={warehouse}
               alt="Workshop"
               className="h-64 w-full object-cover"
             />
-          </div>
+          </div> */}
 
-          <div className="rounded-3xl rounded-t-none bg-[#f5f3f3] p-6 text-black shadow-xl">
+          <div className="rounded-3xl  bg-[#f5f3f3] p-6 text-black shadow-xl">
             <h3 className="mb-3 text-2xl font-bold">
               Who Are We?
             </h3>
@@ -107,15 +107,15 @@ export const AboutSheffieldSection = () => {
 </div>
           
 <div className="flex flex-col ">
-          <div className="overflow-hidden rounded-3xl rounded-b-none shadow-lg">
+          {/* <div className="overflow-hidden rounded-3xl rounded-b-none shadow-lg">
             <img
               src={blades}
               alt="Saw Blades"
               className="h-64 w-full object-cover"
             />
-          </div>
+          </div> */}
 
-          <div className="rounded-3xl rounded-t-none bg-[#f3f3f3] p-6 text-white shadow-xl">
+          <div className="rounded-3xl bg-[#f3f3f3] p-6 text-white shadow-xl">
             <h3 className="mb-3 text-2xl font-bold text-black">
               What Do We Do?
             </h3>
