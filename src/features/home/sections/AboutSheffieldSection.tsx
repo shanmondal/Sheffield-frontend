@@ -1,135 +1,154 @@
-import warehouse from "@/assets/images/warehouse.jpeg";
-import blades from "@/assets/images/blade.jpeg";
+
+import heritagebg from "@/assets/images/heritage.jpeg";
+import { Factory, Globe2, Award, Wrench } from "lucide-react";
+
+const stats = [
+  {
+    icon: Factory,
+    value: "UK's Only",
+    label: "Hot Saw Blade Producer",
+  },
+  {
+    icon: Globe2,
+    value: "50+",
+    label: "Countries Supplied",
+  },
+  {
+    icon: Award,
+    value: "2009",
+    label: "Established",
+  },
+  {
+    icon: Wrench,
+    value: "24/7",
+    label: "Support",
+  },
+];
+const mobstats = [
+  {
+    icon: Factory,
+    value: "UK's Only",
+    label: "Hot Saw Blade Producer",
+  },
+  {
+    icon: Globe2,
+    value: "50+",
+    label: "Countries Supplied",
+  },
+  // {
+  //   icon: Award,
+  //   value: "2009",
+  //   label: "Established",
+  // },
+  // {
+  //   icon: Wrench,
+  //   value: "24/7",
+  //   label: "Support",
+  // },
+];
 
 export const AboutSheffieldSection = () => {
   return (
-    <section className="bg-gradient-to-b from-white to-slate-50 lg:py-16 md:py-24">
-      <div className="mx-auto max-w-7xl px-5 md:px-8">
+    <section className=" py-16 md:py-24 ">
+      <div className="mx-auto   w-full">
 
-        {/* Heading */}
-        <div className="mb-14 text-center">
-          <span className="text-xs font-semibold uppercase tracking-[3px] text-[#0A4A9E]">
-            About Sheffield
-          </span>
+        <div className="relative overflow-hidden  w-full">
 
-          <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-            Engineering Excellence.
-            <br />
-            Sheffield Heritage.
-          </h2>
-        </div>
+          {/* Background */}
+          <img
+            src={heritagebg}
+            alt="Engineering Heritage"
+            className="h-[420px] w-full object-cover md:h-[500px]"
+          />
 
-        {/* Desktop */}
-        <div className="hidden lg:block">
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-[#0A4A9E]/80"  />
 
-          {/* Row 1 */}
-          <div className="relative h-[220px] flex items-center justify-center gap-0 mb-10 ">
+          {/* Content */}
+          <div className="absolute inset-0 flex items-center">
+            <div className="mx-auto max-w-5xl px-6 text-center text-white">
 
-            <div className="w-[360px] h-full overflow-hidden rounded-3xl lg:rounded-r-none shadow-lg">
-              <img
-                src={warehouse}
-                alt="Sheffield Workshop"
-                className="h-full w-full object-cover"
-              />
-            </div>
+              <span className="text-xs font-semibold uppercase tracking-[3px] text-blue-100">
+                About Sheffield
+              </span>
 
-            <div className="w-[520px] h-[220px] lg:rounded-l-none  rounded-3xl bg-[#f5f3f3] p-6 text-black shadow-[0_15px_30px_rgba(15,23,42,0.35)]">
-              <h3 className="mb-3 text-2xl font-bold">
-                Who Are We?
-              </h3>
+              <h2 className="mt-4 text-md lg:text-3xl font-bold md:text-5xl">
+                Engineering Excellence.
+                <br />
+                Sheffield Heritage.
+              </h2>
 
-              <p className="text-sm leading-7 text-black/80">
-                The company took over the machinery, equipment and labour force
-                previously owned by Spear & Jackson International in 2009.
+              <p className="mx-auto mt-6 max-w-3xl text-sm leading-5 lg:leading-7 text-blue-50 md:text-lg">
+                Sheffield Industrial Saws became the UK's only producer of
+                Hot Saw Blades used in steel section mills worldwide after
+                acquiring the machinery, equipment and workforce of Spear &
+                Jackson International in 2009.
               </p>
 
-              <p className="mt-3 text-sm leading-7 text-black/80">
-                We are the UK's only producer of Hot Saw Blades used in steel
-                section mills worldwide.
-              </p>
+              {/* Stats */}
+              <div className="mt-10 lg:grid grid-cols-4 gap-4 lg:grid-cols-4 hidden">
+                {stats.map((stat) => {
+                  const Icon = stat.icon;
+
+                  return (
+                    <div
+                      key={stat.label}
+                      className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm"
+                    >
+                      <Icon
+                        size={20}
+                        className="mx-auto mb-2"
+                      />
+
+                      <div className="lg:text-xl text-sm font-bold">
+                        {stat.value}
+                      </div>
+
+                      <div className="mt-1 text-xs text-blue-100">
+                        {stat.label}
+                      </div>
+                    </div>
+                    
+
+                  );
+                })}
+              </div>
+           
+                  <div className="mt-10 lg:hidden grid grid-cols-2 gap-4 lg:grid-cols-4 ">
+                {mobstats.map((mobstat) => {
+                  const Icon = mobstat.icon;
+
+                  return (
+                    <div
+                      key={mobstat.label}
+                      className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm"
+                    >
+                      <Icon
+                        size={20}
+                        className="mx-auto mb-2"
+                      />
+
+                      <div className="lg:text-xl text-sm font-bold">
+                        {mobstat.value}
+                      </div>
+
+                      <div className="mt-1 text-xs text-blue-100">
+                        {mobstat.label}
+                      </div>
+                    </div>
+                    
+                    
+                  );
+                })}
+              </div>
+
             </div>
-
           </div>
 
-          {/* Row 2 */}
-          <div className="relative h-[220px] flex items-center justify-center  ">
-
-            <div className=" h-full   w-[520px]  rounded-3xl rounded-r-none bg-[#f5f3f3] p-6 text-white shadow-[0_15px_30px_rgba(15,23,22,0.35)]">
-              <h3 className="mb-3 text-2xl font-bold text-black">
-                What Do We Do?
-              </h3>
-
-              <p className="text-sm leading-7 text-black/80">
-                We provide products for every type of industrial cutting
-                application throughout the UK and worldwide.
-              </p>
-
-              <p className="mt-3 text-sm leading-7 text-black/80">
-                We offer blade repair, servicing and Hot Saw Blade repair
-                machines for companies with regular maintenance requirements.
-              </p>
-            </div>
-
-            <div className="w-[360px] h-full overflow-hidden rounded-3xl lg:rounded-l-none shadow-lg">
-              <img
-                src={blades}
-                alt="Industrial Saw Blades"
-                className="h-full w-full object-cover"
-              />
-            </div>
-
-          </div>
-        </div>
-
-        {/* Mobile */}
-        <div className="space-y-8 lg:hidden ">
-<div className="flex flex-col ">
-{/* <div className="overflow-hidden rounded-3xl  rounded-b-none shadow-lg">
-            <img
-              src={warehouse}
-              alt="Workshop"
-              className="h-64 w-full object-cover"
-            />
-          </div> */}
-
-          <div className="rounded-3xl  bg-[#f5f3f3] p-6 text-black shadow-xl">
-            <h3 className="mb-3 text-2xl font-bold">
-              Who Are We?
-            </h3>
-
-            <p className="leading-7 text-black/80">
-              The company took over the machinery, equipment and labour force
-              previously owned by Spear & Jackson International in 2009.
-              We are the UK's only producer of Hot Saw Blades used in steel
-              section mills worldwide.
-            </p>
-          </div>
-</div>
-          
-<div className="flex flex-col ">
-          {/* <div className="overflow-hidden rounded-3xl rounded-b-none shadow-lg">
-            <img
-              src={blades}
-              alt="Saw Blades"
-              className="h-64 w-full object-cover"
-            />
-          </div> */}
-
-          <div className="rounded-3xl bg-[#f3f3f3] p-6 text-white shadow-xl">
-            <h3 className="mb-3 text-2xl font-bold text-black">
-              What Do We Do?
-            </h3>
-
-            <p className="leading-7  text-black/80">
-              We provide industrial cutting solutions worldwide, including
-              saw blade manufacturing, repair services and specialist Hot Saw
-              Blade repair machinery.
-            </p>
-          </div>
-</div>
         </div>
 
       </div>
     </section>
   );
 };
+

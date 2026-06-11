@@ -1,87 +1,89 @@
-
+import { MapPin, Phone } from "lucide-react";
 
 export const ContactCTASection = () => {
   return (
-    <section className="bg-slate-50 py-20">
-      <div className="flex flex-col items-center justify-center gap-16  ">
+    <section className="bg-slate-50 py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
 
-        {/* Heading */}
-        <div className="mb-14 text-center">
-          <span className="text-sm font-semibold uppercase tracking-[3px] text-[#0A4A9E]">
-            Contact Us
-          </span>
+        <div className="grid gap-12 lg:grid-cols-[420px_1fr] lg:gap-20">
 
-          <h2 className="mt-4 text-3xl font-bold text-slate-900 md:text-5xl">
-            Need Technical Advice?
-          </h2>
+          {/* Left Side */}
+          <div>
 
-          <p className="mx-auto mt-5 max-w-3xl text-slate-600 md:text-lg">
-            Whether you need a replacement blade, repair service,
-            machinery support or a custom solution, our team is ready to help.
-          </p>
-        </div>
+            <span className="text-xs font-semibold uppercase tracking-[3px] text-[#0A4A9E]">
+              Contact
+            </span>
 
-        <div className="">
+            <h2 className="mt-4 text-3xl font-bold leading-tight text-slate-900 md:text-5xl">
+              Need Technical
+              <br />
+              Advice?
+            </h2>
 
-          {/* Contact Info */}
-          {/* <div className="lg:col-span-2">
+            <p className="mt-6 max-w-md text-slate-600 leading-8">
+              Whether you need a replacement blade, repair service,
+              machinery support or a custom solution, our team is
+              ready to help.
+            </p>
 
-            <div className="rounded-3xl bg-[#0A4A9E] p-8 text-white">
+            <div className="mt-10 space-y-6">
 
-              <h3 className="mb-8 text-2xl font-semibold">
-                Contact Information
-              </h3>
-
-              <div className="space-y-8">
-
-                <div className="flex gap-4">
-                  <Phone className="mt-1 h-5 w-5" />
-
-                  <div>
-                    <p className="font-semibold">Call Us</p>
-                    <p className="text-blue-100">
-                      +44 (0) 114 225 0804
-                    </p>
-                  </div>
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50">
+                  <MapPin
+                    size={20}
+                    className="text-[#0A4A9E]"
+                  />
                 </div>
 
-                <div className="flex gap-4">
-                  <Mail className="mt-1 h-5 w-5" />
+                <div>
+                  <p className="font-semibold text-slate-900">
+                    Global Headquarters
+                  </p>
 
-                  <div>
-                    <p className="font-semibold">Email</p>
-                    <p className="text-blue-100">
-                      sales@sheffsaws.com
-                    </p>
-                  </div>
+                  <p className="mt-1 text-slate-600">
+                    Imperial Works
+                    <br />
+                    Sheffield Road
+                    <br />
+                    Sheffield
+                    <br />
+                    S9 2YL
+                  </p>
                 </div>
-
-                <div className="flex gap-4">
-                  <MapPin className="mt-1 h-5 w-5" />
-
-                  <div>
-                    <p className="font-semibold">Location</p>
-                    <p className="text-blue-100">
-                      Imperial Works
-                      <br />
-                      Sheffield Road
-                      <br />
-                      Sheffield
-                      <br />
-                      S9 2YL
-                    </p>
-                  </div>
-                </div>
-
               </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50">
+                  <Phone
+                    size={20}
+                    className="text-[#0A4A9E]"
+                  />
+                </div>
+
+                <div>
+                  <p className="font-semibold text-slate-900">
+                    Technical Support
+                  </p>
+
+                  <p className="mt-1 text-slate-600">
+                    +44 (0) 114 225 0804
+                  </p>
+
+                  <p className="text-slate-600">
+                    sales@sheffsaws.com
+                  </p>
+                </div>
+              </div>
+
             </div>
 
-          </div> */}
+          </div>
 
-          {/* Form */}
-          <div className="lg:col-span-3 ">
+          {/* Right Side */}
+          <div>
 
-            <div className="rounded-3xl border border-[#08306B] bg-white p-8 shadow-sm">
+            <div className="rounded-3xl border border-slate-200 bg-white p-6 md:p-8 shadow-sm">
 
               <form className="space-y-6">
 
@@ -94,12 +96,23 @@ export const ContactCTASection = () => {
 
                     <input
                       type="text"
-                      className="w-full rounded-xl border border-[#08306B] px-4 py-3 outline-none transition focus:border-[#0A4A9E]"
                       required
-                      placeholder="Full  Name*"
+                      placeholder="Full Name*"
+                      className="w-full rounded-xl border border-[#08306B] px-4 py-3 outline-none transition focus:border-[#0A4A9E]"
                     />
                   </div>
+    <div>
+                    <label className="mb-2 block text-sm font-medium">
+                      Company
+                    </label>
 
+                    <input
+                      type="text"
+                      required
+                      placeholder="Company*"
+                      className="w-full rounded-xl border border-[#08306B] px-4 py-3 outline-none transition focus:border-[#0A4A9E]"
+                    />
+                  </div>
                   <div>
                     <label className="mb-2 block text-sm font-medium">
                       Email
@@ -107,23 +120,34 @@ export const ContactCTASection = () => {
 
                     <input
                       type="email"
-                       required
+                      required
                       placeholder="Email*"
                       className="w-full rounded-xl border border-[#08306B] px-4 py-3 outline-none transition focus:border-[#0A4A9E]"
                     />
                   </div>
+    <div>
+                    <label className="mb-2 block text-sm font-medium">
+                      Phone
+                    </label>
 
+                    <input
+                      type="text"
+                      required
+                      placeholder="Full Name*"
+                      className="w-full rounded-xl border border-[#08306B] px-4 py-3 outline-none transition focus:border-[#0A4A9E]"
+                    />
+                  </div>
                 </div>
 
                 <div>
                   <label className="mb-2 block text-sm font-medium">
-                    Phone
+                    Subject
                   </label>
 
                   <input
                     type="text"
-                     required
-                      placeholder="Phone*"
+                    required
+                    placeholder="Subject*"
                     className="w-full rounded-xl border border-[#08306B] px-4 py-3 outline-none transition focus:border-[#0A4A9E]"
                   />
                 </div>
@@ -135,15 +159,15 @@ export const ContactCTASection = () => {
 
                   <textarea
                     rows={6}
-                    className="w-full rounded-xl border border-[#08306B] px-4 py-3 outline-none transition focus:border-[#0A4A9E]"
                     required
                     placeholder="Message*"
+                    className="w-full rounded-xl border border-[#08306B] px-4 py-3 outline-none transition focus:border-[#0A4A9E]"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="rounded-xl bg-[#0A4A9E] px-8 py-4 font-semibold text-white transition hover:bg-[#083a7c]"
+                  className="w-full rounded-xl bg-[#0A4A9E] px-8 py-4 font-semibold text-white transition hover:bg-[#083a7c]"
                 >
                   Send Enquiry
                 </button>
@@ -155,6 +179,7 @@ export const ContactCTASection = () => {
           </div>
 
         </div>
+
       </div>
     </section>
   );
