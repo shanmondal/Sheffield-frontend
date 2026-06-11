@@ -54,7 +54,7 @@ export const PowerFlamePage = () => {
             </div>
 
             <Link
-              to="/repair-machinery/powergrinder"
+              to="/reparing/powergrinder"
               className="mt-8 inline-flex rounded-xl border-2 border-[#0A4A9E] px-6 py-3 font-semibold text-[#0A4A9E] transition hover:bg-[#0A4A9E] hover:text-white"
             >
               View PowerGrinder

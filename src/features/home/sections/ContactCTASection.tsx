@@ -3,7 +3,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 export const ContactCTASection = () => {
   return (
     <section className="bg-slate-50 py-20">
-      <div className="mx-auto max-w-7xl px-5 md:px-8">
+      <div className="flex flex-col items-center justify-center gap-16  ">
 
         {/* Heading */}
         <div className="mb-14 text-center">
@@ -21,10 +21,10 @@ export const ContactCTASection = () => {
           </p>
         </div>
 
-        <div className="grid gap-10 lg:grid-cols-5">
+        <div className="">
 
           {/* Contact Info */}
-          <div className="lg:col-span-2">
+          {/* <div className="lg:col-span-2">
 
             <div className="rounded-3xl bg-[#0A4A9E] p-8 text-white">
 
@@ -76,12 +76,12 @@ export const ContactCTASection = () => {
               </div>
             </div>
 
-          </div>
+          </div> */}
 
           {/* Form */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 ">
 
-            <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+            <div className="rounded-3xl border border-[#08306B] bg-white p-8 shadow-sm">
 
               <form className="space-y-6">
 
@@ -94,7 +94,9 @@ export const ContactCTASection = () => {
 
                     <input
                       type="text"
-                      className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-[#0A4A9E]"
+                      className="w-full rounded-xl border border-[#08306B] px-4 py-3 outline-none transition focus:border-[#0A4A9E]"
+                      required
+                      placeholder="Full  Name*"
                     />
                   </div>
 
@@ -105,7 +107,9 @@ export const ContactCTASection = () => {
 
                     <input
                       type="email"
-                      className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-[#0A4A9E]"
+                       required
+                      placeholder="Email*"
+                      className="w-full rounded-xl border border-[#08306B] px-4 py-3 outline-none transition focus:border-[#0A4A9E]"
                     />
                   </div>
 
@@ -118,7 +122,9 @@ export const ContactCTASection = () => {
 
                   <input
                     type="text"
-                    className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-[#0A4A9E]"
+                     required
+                      placeholder="Phone*"
+                    className="w-full rounded-xl border border-[#08306B] px-4 py-3 outline-none transition focus:border-[#0A4A9E]"
                   />
                 </div>
 
@@ -129,7 +135,9 @@ export const ContactCTASection = () => {
 
                   <textarea
                     rows={6}
-                    className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-[#0A4A9E]"
+                    className="w-full rounded-xl border border-[#08306B] px-4 py-3 outline-none transition focus:border-[#0A4A9E]"
+                    required
+                    placeholder="Message*"
                   />
                 </div>
 

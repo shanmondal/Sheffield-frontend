@@ -33,7 +33,7 @@ export const RepairMachineryPage = () => {
   {REPAIR_MACHINES.map((machine) => (
     <Link
       key={machine.slug}
-      to={`/repair-machinery/${machine.slug}`}
+      to={`/reparing/${machine.slug}`}
       className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all hover:border-[#0A4A9E] hover:shadow-lg md:flex-row"
     >
       {/* Image */}
@@ -57,7 +57,7 @@ export const RepairMachineryPage = () => {
           </p>
         </div>
 
-        <div className="mt-6 flex items-center gap-2 font-semibold text-[#0A4A9E]">
+        <div className="mt-6  flex lg:w-[50%] w-[60%] text-white  items-center gap-2 font-semibold bg-[#0A4A9E] px-4 py-2 rounded-xl transition hover:bg-[#08306B]">
           View Details
           <ArrowRight size={18} />
         </div>

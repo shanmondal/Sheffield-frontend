@@ -134,7 +134,7 @@ export const ContactPage = () => {
           <div className="overflow-hidden rounded-3xl shadow-lg">
             <iframe
               title="Sheffield Industrial Saws"
-              src="https://maps.google.com/maps?q=sheffield&t=&z=11&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=Imperial Works, Sheffield Road, Sheffield S9 2YL,United Kingdom&t=&z=11&ie=UTF8&iwloc=&output=embed"
               className="h-[600px] w-full"
               loading="lazy"
             />

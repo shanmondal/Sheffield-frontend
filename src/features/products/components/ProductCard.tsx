@@ -16,7 +16,7 @@ export const ProductCard = ({
   return (
     <Link
       to={`/products/${slug}`}
-      className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+      className="group overflow-hidden rounded-2xl border border-[#08306B] bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
     >
       <div className="aspect-[4/3] overflow-hidden">
         <img
@@ -35,7 +35,7 @@ export const ProductCard = ({
           {description}
         </p>
 
-        <span className="font-semibold text-[#0A4A9E]">
+        <span className="font-semibold text-white bg-[#0A4A9E] px-4 py-2 rounded-xl transition hover:bg-[#08306B]">
           View Product →
         </span>
       </div>

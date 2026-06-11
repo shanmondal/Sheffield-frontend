@@ -41,19 +41,19 @@ export const router = createBrowserRouter([
         element: <RepairMachineryPage />,
       },
       {
-  path: "repair-machinery/powergrinder",
+  path: "reparing/powergrinder",
   element: <PowerGrinderPage />,
 
 },{
-  path: "repair-machinery/powerflame",
+  path: "reparing/powerflame",
   element: <PowerFlamePage />,
 },
 {
-  path: "repair-machinery/mastergrinder",
+  path: "reparing/mastergrinder",
   element: <MasterGrinderPage />,
 },
 {
-  path: "repair-machinery/powerroll",
+  path: "reparing/powerroll",
   element: <PowerRollPage />,
 },
       {
