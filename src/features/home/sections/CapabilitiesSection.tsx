@@ -27,7 +27,7 @@ const offerings = [
 
 export const CapabilitiesSection = () => {
   return (
-    <section className="bg-slate-50 py-16 md:py-24 lg:py-32">
+    <section className="bg-slate-50 py-16 md:py-24 lg:py-32 lg:pb-5">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         {/* Header */}
         <div className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
