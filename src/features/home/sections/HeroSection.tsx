@@ -147,13 +147,12 @@ export const HeroSection = ({ onOpenQuote }: HeroSectionProps) => {
             customers globally. Effective 15th May 2026, the business operates
             under{' '}
             <span className="font-semibold">Maco Corporation UK Limited</span>.
-            <Link
-             
+            <button
               className="inline-flex items-center rounded-lg border border-white/30 bg-white/15 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white hover:text-[#0A4A9E] lg:ml-2 lg:mt-0 mt-5"
-               onClick={() => window.location.href = "/announcement.html"}
+              onClick={() => (window.location.href = '/announcement.html')}
             >
               Important Announcement
-            </Link>
+            </button>
           </div>
 
           <button
