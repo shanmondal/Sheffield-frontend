@@ -1,14 +1,14 @@
-import { useNavigate } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay, EffectFade } from "swiper/modules";
-import { useEffect, useState } from "react";
-
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/effect-fade";
-
-import heroFactory from "@/assets/images/hero-banner.png";
-import heroProducts from "@/assets/images/hero-products.png";
+import { useNavigate } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Autoplay, EffectFade } from 'swiper/modules';
+import { useEffect, useState } from 'react';
+import { X } from 'lucide-react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
+import { Link } from 'react-router-dom';
+import heroFactory from '@/assets/images/hero-banner.png';
+import heroProducts from '@/assets/images/hero-products.png';
 
 interface HeroSectionProps {
   onOpenQuote: () => void;
@@ -17,38 +17,43 @@ interface HeroSectionProps {
 const slides = [
   {
     image: heroFactory,
-    tag: "SHEFFIELD • UK MANUFACTURING",
-    title: "Precision Engineered",
-    highlight: "Industrial Saw Blades",
+    tag: 'SHEFFIELD • UK MANUFACTURING',
+    title: 'Precision Engineered',
+    highlight: 'Industrial Saw Blades',
     description:
-      "Manufacturing Hot Saw, Friction, TCT, HSS and Segmental Saw Blades for steel mills and industrial operations worldwide.",
-    bgPosition: "center center",
-    overlayClass: "from-white via-white/95 lg:via-white/70",
+      'Manufacturing Hot Saw, Friction, TCT, HSS and Segmental Saw Blades for steel mills and industrial operations worldwide.',
+    bgPosition: 'center center',
+    overlayClass: 'from-white via-white/95 lg:via-white/70',
   },
   {
     image: heroProducts,
-    tag: "UK MANUFACTURING • GLOBAL PERFORMANCE",
-    title: "Industrial Saw Blades Engineered For",
-    highlight: "Steel Mills Worldwide",
+    tag: 'UK MANUFACTURING • GLOBAL PERFORMANCE',
+    title: 'Industrial Saw Blades Engineered For',
+    highlight: 'Steel Mills Worldwide',
     description:
-      "Manufacturing, refurbishment and servicing of Hot Saw, Friction, TCT and Segmental blades from our UK production facility.",
-    bgPosition: "right center",
-    overlayClass: "from-white via-white/95 lg:via-white/65",
-    categories: ["Hot Saw Blades", "Friction Saws", "TCT Blades", "Segmental Blades"],
+      'Manufacturing, refurbishment and servicing of Hot Saw, Friction, TCT and Segmental blades from our UK production facility.',
+    bgPosition: 'right center',
+    overlayClass: 'from-white via-white/95 lg:via-white/65',
+    categories: [
+      'Hot Saw Blades',
+      'Friction Saws',
+      'TCT Blades',
+      'Segmental Blades',
+    ],
   },
 ];
 
 const stats = [
-  { value: "UK", label: "Manufacturing" },
-  { value: "Global", label: "Supply" },
-  { value: "Custom", label: "Solutions" },
+  { value: 'UK', label: 'Manufacturing' },
+  { value: 'Global', label: 'Supply' },
+  { value: 'Custom', label: 'Solutions' },
 ];
 
 export const HeroSection = ({ onOpenQuote }: HeroSectionProps) => {
   const navigate = useNavigate();
   // const [activeIndex, setActiveIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-
+  const [showAnnouncement, setShowAnnouncement] = useState(true);
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 50);
     return () => clearTimeout(timer);
@@ -112,8 +117,55 @@ export const HeroSection = ({ onOpenQuote }: HeroSectionProps) => {
         .hero-stats {
           transition-delay: 0.4s;
         }
-      `}</style>
 
+          @keyframes noticeShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-2px);
+  }
+  40% {
+    transform: translateX(2px);
+  }
+  60% {
+    transform: translateX(-2px);
+  }
+  80% {
+    transform: translateX(2px);
+  }
+}
+
+.notice-button {
+  animation: noticeShake .8s ease-in-out infinite;
+}
+      `}</style>
+      {showAnnouncement && (
+        <div className=" z-30 relative bg-[#0A4A9E] text-white lg:absolute w-full">
+          <div className="flex-1 pr-2 text-xs leading-6 sm:text-sm md:text-base py-5 px-5 lg:pl-2 ">
+            Sheffield Industrial Saws is 100% operational and ready to serve
+            customers globally. Effective 15th May 2026, the business operates
+            under{' '}
+            <span className="font-semibold">Maco Corporation UK Limited</span>.
+            <Link
+              to="/important-announcement"
+              className="inline-flex items-center rounded-lg border border-white/30 bg-white/15 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white hover:text-[#0A4A9E] lg:ml-2 lg:mt-0 mt-5"
+               onClick={() => window.location.href = "/announcement.html"}
+            >
+              Important Announcement
+            </Link>
+          </div>
+
+          <button
+            type="button"
+            aria-label="Close announcement"
+            onClick={() => setShowAnnouncement(false)}
+            className="rounded-md  transition hover:bg-white/10 absolute right-0 top-0  lg:right-0 lg:top--2"
+          >
+            <X size={18} />
+          </button>
+        </div>
+      )}
       <Swiper
         modules={[Pagination, Autoplay, EffectFade]}
         effect="fade"
@@ -130,8 +182,8 @@ export const HeroSection = ({ onOpenQuote }: HeroSectionProps) => {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             {/* Slide wrapper — full viewport height on mobile, fixed on desktop */}
-            <div className="relative flex flex-col min-h-[100svh] md:min-h-0 md:h-[620px] lg:h-[680px]">
 
+            <div className="relative flex flex-col min-h-[100svh] md:min-h-0 md:h-[620px] lg:h-[680px]">
               {/* Background Image */}
               <div
                 className="absolute inset-0 bg-cover bg-no-repeat"
@@ -150,14 +202,12 @@ export const HeroSection = ({ onOpenQuote }: HeroSectionProps) => {
 
               {/* Content Container */}
               <div className="relative z-10 mx-auto flex h-full w-full max-w-[1400px] flex-col justify-center px-5 sm:px-8 lg:px-12 py-16 md:py-0">
-
                 {/* Text Content — max width prevents overlapping image on mid screens */}
                 <div className="w-full max-w-[560px] lg:max-w-[640px]">
-
                   {/* Tag */}
                   <p
                     className={`mb-3 text-[10px] font-bold uppercase tracking-[3px] text-[#0A4A9E] sm:text-xs hero-tag ${
-                      isVisible ? "hero-content-visible" : "hero-content-enter"
+                      isVisible ? 'hero-content-visible' : 'hero-content-enter'
                     }`}
                   >
                     {slide.tag}
@@ -166,7 +216,7 @@ export const HeroSection = ({ onOpenQuote }: HeroSectionProps) => {
                   {/* Heading */}
                   <h1
                     className={`mb-5 text-[2.1rem] font-extrabold leading-[1.13] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.4rem] xl:text-6xl hero-title ${
-                      isVisible ? "hero-content-visible" : "hero-content-enter"
+                      isVisible ? 'hero-content-visible' : 'hero-content-enter'
                     }`}
                   >
                     {slide.title}
@@ -178,7 +228,7 @@ export const HeroSection = ({ onOpenQuote }: HeroSectionProps) => {
                   {/* Description */}
                   <p
                     className={`mb-7 max-w-[500px] text-[0.95rem] leading-[1.75] text-slate-800 sm:text-base sm:leading-relaxed hero-desc ${
-                      isVisible ? "hero-content-visible" : "hero-content-enter"
+                      isVisible ? 'hero-content-visible' : 'hero-content-enter'
                     }`}
                   >
                     {slide.description}
@@ -187,7 +237,7 @@ export const HeroSection = ({ onOpenQuote }: HeroSectionProps) => {
                   {/* Buttons */}
                   <div
                     className={`flex flex-row flex-wrap gap-3 hero-buttons ${
-                      isVisible ? "hero-content-visible" : "hero-content-enter"
+                      isVisible ? 'hero-content-visible' : 'hero-content-enter'
                     }`}
                   >
                     <button
@@ -197,19 +247,18 @@ export const HeroSection = ({ onOpenQuote }: HeroSectionProps) => {
                       Request Quote
                     </button>
                     <button
-                      onClick={() => navigate("/products")}
+                      onClick={() => navigate('/products')}
                       className="rounded-lg border-2 border-[#0A4A9E] bg-white/80 px-6 py-3 text-sm font-semibold text-[#0A4A9E] backdrop-blur-sm transition-all hover:bg-white active:scale-[0.98] sm:text-base"
                     >
                       View Products
                     </button>
                   </div>
-
                 </div>
 
                 {/* Stats — positioned at bottom, visible on all screen sizes */}
                 <div
                   className={`mt-10 flex gap-8 sm:gap-12 hero-stats ${
-                    isVisible ? "hero-content-visible" : "hero-content-enter"
+                    isVisible ? 'hero-content-visible' : 'hero-content-enter'
                   }`}
                 >
                   {stats.map((stat) => (
@@ -223,7 +272,6 @@ export const HeroSection = ({ onOpenQuote }: HeroSectionProps) => {
                     </div>
                   ))}
                 </div>
-
               </div>
 
               {/* Product Category Badges — only on slide 2 (heroProducts), desktop only */}
@@ -245,7 +293,6 @@ export const HeroSection = ({ onOpenQuote }: HeroSectionProps) => {
                   ))}
                 </div>
               )} */}
-
             </div>
           </SwiperSlide>
         ))}
