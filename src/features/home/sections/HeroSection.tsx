@@ -6,7 +6,7 @@ import { X } from 'lucide-react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
-import { Link } from 'react-router-dom';
+
 import heroFactory from '@/assets/images/hero-banner.png';
 import heroProducts from '@/assets/images/hero-products.png';
 
