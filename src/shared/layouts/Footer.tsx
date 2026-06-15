@@ -86,7 +86,7 @@ export const Footer = () => {
             <ul className="space-y-3 text-slate-400">
               <li>Sheffield, United Kingdom</li>
               <li>sales@sheffieldindustrialsaws.com</li>
-              <li>+44 xxx xxxx xxx</li>
+              <li>+44 (0) 114 225 0804</li>
             </ul>
           </div>
         </div>

@@ -1,34 +1,37 @@
-import segmentalHeroImg from "@/assets/images/products/Segmental+Saw+blades.webp";
-import applicationsImg from "@/assets/images/products/Segmental-Teeth-Applications.webp";
-import toothProfileImg from "@/assets/images/products/Segmental+Tooth+profiles.webp";
+import segmentalHeroImg from '@/assets/images/products/Segmental+Saw+blades.webp';
+import applicationsImg from '@/assets/images/products/Segmental-Teeth-Applications.webp';
+import toothProfileImg from '@/assets/images/products/Segmental+Tooth+profiles.webp';
+import { QuoteModal } from '@/shared/componets/QuoteModal';
+import { useState } from 'react';
 
 export const SegmentalPage = () => {
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const applications = [
     {
-      teeth: "2",
-      application: "High speed machining of aluminium billets and slabs",
+      teeth: '2',
+      application: 'High speed machining of aluminium billets and slabs',
     },
     {
-      teeth: "3",
-      application: "Solid non-ferrous material > 100mm dia (except brass)",
+      teeth: '3',
+      application: 'Solid non-ferrous material > 100mm dia (except brass)',
     },
     {
-      teeth: "4",
+      teeth: '4',
       application:
-        "Soft and medium steel round bars, billets, forgings etc. >75mm",
+        'Soft and medium steel round bars, billets, forgings etc. >75mm',
     },
     {
-      teeth: "5/6",
+      teeth: '5/6',
       application:
-        "Steel 50 tons tensile and upwards, small bars, cast iron, steel rails, thick walled tubes, construction sections, joists and channels",
+        'Steel 50 tons tensile and upwards, small bars, cast iron, steel rails, thick walled tubes, construction sections, joists and channels',
     },
     {
-      teeth: "8/9",
-      application: "Tubes, light steel sections and universal beams",
+      teeth: '8/9',
+      application: 'Tubes, light steel sections and universal beams',
     },
     {
-      teeth: "12/16",
-      application: "Light window frame sections etc.",
+      teeth: '12/16',
+      application: 'Light window frame sections etc.',
     },
   ];
 
@@ -98,13 +101,8 @@ export const SegmentalPage = () => {
 
               <tbody>
                 {applications.map((item) => (
-                  <tr
-                    key={item.teeth}
-                    className="border-b last:border-0"
-                  >
-                    <td className="px-6 py-4 font-semibold">
-                      {item.teeth}
-                    </td>
+                  <tr key={item.teeth} className="border-b last:border-0">
+                    <td className="px-6 py-4 font-semibold">{item.teeth}</td>
 
                     <td className="px-6 py-4 text-slate-600">
                       {item.application}
@@ -127,8 +125,8 @@ export const SegmentalPage = () => {
 
             <div className="space-y-4 text-slate-600">
               <p>
-                Chrome-Vanadium steel bodies are flat ground and finished to
-                a fine surface finish.
+                Chrome-Vanadium steel bodies are flat ground and finished to a
+                fine surface finish.
               </p>
 
               <p>
@@ -234,32 +232,32 @@ export const SegmentalPage = () => {
           </h2>
 
           <p className="mb-8 text-lg text-slate-600">
-            Our engineering team can help you choose the correct segmental
-            blade specification for your cutting application.
+            Our engineering team can help you choose the correct segmental blade
+            specification for your cutting application.
           </p>
 
-          <button className="rounded-lg bg-[#0A4A9E] px-8 py-4 font-semibold text-white hover:bg-[#083a7c]">
+          <button
+            className="rounded-lg bg-[#0A4A9E] px-8 py-4 font-semibold text-white hover:bg-[#083a7c]"
+            onClick={() => setIsQuoteOpen(true)}
+          >
             Request Quote
           </button>
         </div>
       </section>
+      <QuoteModal
+        isOpen={isQuoteOpen}
+        onClose={() => setIsQuoteOpen(false)}
+        source="segmental-page"
+      />
     </div>
   );
 };
 
-function SpecCard({
-  title,
-  value,
-}: {
-  title: string;
-  value: string;
-}) {
+function SpecCard({ title, value }: { title: string; value: string }) {
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
       <p className="text-sm text-slate-500">{title}</p>
-      <h3 className="mt-2 text-xl font-bold text-slate-900">
-        {value}
-      </h3>
+      <h3 className="mt-2 text-xl font-bold text-slate-900">{value}</h3>
     </div>
   );
 }

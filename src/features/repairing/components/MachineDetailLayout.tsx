@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 interface MachineDetailLayoutProps {
   title: string;
   image: string;
@@ -13,6 +15,7 @@ export const MachineDetailLayout = ({
   specifications,
   features,
 }: MachineDetailLayoutProps) => {
+  const navigate = useNavigate();
   return (
     <div className="bg-white">
       <section className="mx-auto max-w-7xl px-6 py-16">
@@ -60,7 +63,10 @@ export const MachineDetailLayout = ({
                 machine specifications and pricing.
               </p>
 
-              <button className="rounded-lg bg-[#0A4A9E] px-6 py-3 font-semibold text-white">
+              <button 
+                className="rounded-lg bg-[#0A4A9E] px-6 py-3 font-semibold text-white" 
+                onClick={() => navigate('/contact')}
+              >
                 Contact Us
               </button>
             </div>

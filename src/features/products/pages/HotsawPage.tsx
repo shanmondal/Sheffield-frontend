@@ -1,9 +1,12 @@
-import hotSawHero from "@/assets/images/products/Hotsaw+Blade.webp";
-import  toothProfileImg from "@/assets/images/products/Hotsaw+Tooth+profiles.webp";
-import flatGroundImg from "@/assets/images/products/Blade+Body+Profile+-+Flat+Ground.webp";
-import hollowTurnedImg from "@/assets/images/products/Blade+Body+Profile+-+Hollow+Turned.webp";
+import hotSawHero from '@/assets/images/products/Hotsaw+Blade.webp';
+import toothProfileImg from '@/assets/images/products/Hotsaw+Tooth+profiles.webp';
+import flatGroundImg from '@/assets/images/products/Blade+Body+Profile+-+Flat+Ground.webp';
+import hollowTurnedImg from '@/assets/images/products/Blade+Body+Profile+-+Hollow+Turned.webp';
+import { QuoteModal } from '@/shared/componets/QuoteModal';
+import { useState } from 'react';
 
- const HotsawPage = () => {
+const HotsawPage = () => {
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   return (
     <div className="bg-white">
       {/* HERO */}
@@ -113,9 +116,7 @@ import hollowTurnedImg from "@/assets/images/products/Blade+Body+Profile+-+Hollo
                 className="mb-6 h-16 object-contain"
               />
 
-              <h3 className="mb-3 text-xl font-semibold">
-                Flat Ground
-              </h3>
+              <h3 className="mb-3 text-xl font-semibold">Flat Ground</h3>
 
               <p className="text-slate-600">
                 Recommended for solid bars and billets.
@@ -129,9 +130,7 @@ import hollowTurnedImg from "@/assets/images/products/Blade+Body+Profile+-+Hollo
                 className="mb-6 h-16 object-contain"
               />
 
-              <h3 className="mb-3 text-xl font-semibold">
-                Hollow Turned
-              </h3>
+              <h3 className="mb-3 text-xl font-semibold">Hollow Turned</h3>
 
               <p className="text-slate-600">
                 Recommended for sections and beams.
@@ -150,8 +149,8 @@ import hollowTurnedImg from "@/assets/images/products/Blade+Body+Profile+-+Hollo
 
           <p className="text-lg leading-relaxed text-slate-600">
             Blades are precisely machined, levelled and tensioned to ensure
-            vibration-free running and accurate cutting at speeds from
-            4267m/min to 7620m/min (14000 to 25000 ft/min).
+            vibration-free running and accurate cutting at speeds from 4267m/min
+            to 7620m/min (14000 to 25000 ft/min).
           </p>
         </div>
       </section>
@@ -164,26 +163,28 @@ import hollowTurnedImg from "@/assets/images/products/Blade+Body+Profile+-+Hollo
           </h2>
 
           <p className="mb-8 text-lg text-slate-600">
-            Our engineers can recommend the correct blade specification for
-            your application.
+            Our engineers can recommend the correct blade specification for your
+            application.
           </p>
 
-          <button className="rounded-lg bg-[#0A4A9E] px-8 py-4 font-semibold text-white hover:bg-[#083a7c]">
+          <button
+            className="rounded-lg bg-[#0A4A9E] px-8 py-4 font-semibold text-white hover:bg-[#083a7c]"
+            onClick={() => setIsQuoteOpen(true)}
+          >
             Request Quote
           </button>
         </div>
       </section>
+      <QuoteModal
+        isOpen={isQuoteOpen}
+        onClose={() => setIsQuoteOpen(false)}
+        source="hotsaw-page"
+      />
     </div>
   );
 };
 
-function SpecCard({
-  title,
-  value,
-}: {
-  title: string;
-  value: string;
-}) {
+function SpecCard({ title, value }: { title: string; value: string }) {
   return (
     <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
       <p className="text-sm text-slate-500">{title}</p>

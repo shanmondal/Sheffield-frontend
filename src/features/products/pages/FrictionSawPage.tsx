@@ -1,9 +1,12 @@
-import frictionBladeImg from "@/assets/images/products/Friction+Saw+Blade.webp";
-import toothProfileImg from "@/assets/images/products/Hotsaw+Tooth+profiles.webp";
-import flatGroundImg from "@/assets/images/products/Blade+Body+Profile+-+Flat+Ground.webp";
-import hollowTurnedImg from "@/assets/images/products/Blade+Body+Profile+-+Hollow+Turned.webp";
+import frictionBladeImg from '@/assets/images/products/Friction+Saw+Blade.webp';
+import toothProfileImg from '@/assets/images/products/Hotsaw+Tooth+profiles.webp';
+import flatGroundImg from '@/assets/images/products/Blade+Body+Profile+-+Flat+Ground.webp';
+import hollowTurnedImg from '@/assets/images/products/Blade+Body+Profile+-+Hollow+Turned.webp';
+import { useState } from 'react';
+import { QuoteModal } from '@/shared/componets/QuoteModal';
 
 export const FrictionSawPage = () => {
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   return (
     <div className="bg-white">
       {/* HERO */}
@@ -59,10 +62,10 @@ export const FrictionSawPage = () => {
               </h3>
 
               <p className="leading-relaxed text-slate-600">
-                Used for friction cutting cold carbon and alloy steels,
-                usually multiple pieces. Finer tooth pitches generate
-                frictional heat during cutting while high-pressure cooling
-                and cleaning ensure optimal blade performance.
+                Used for friction cutting cold carbon and alloy steels, usually
+                multiple pieces. Finer tooth pitches generate frictional heat
+                during cutting while high-pressure cooling and cleaning ensure
+                optimal blade performance.
               </p>
             </div>
 
@@ -72,10 +75,10 @@ export const FrictionSawPage = () => {
               </h3>
 
               <p className="leading-relaxed text-slate-600">
-                POWERBLADE Carbon Manganese Steel, normalised by body and
-                flame hardened teeth. Tough crack-resistant blade body
-                combined with hard wear-resistant teeth for significantly
-                increased blade life.
+                POWERBLADE Carbon Manganese Steel, normalised by body and flame
+                hardened teeth. Tough crack-resistant blade body combined with
+                hard wear-resistant teeth for significantly increased blade
+                life.
               </p>
             </div>
           </div>
@@ -144,9 +147,7 @@ export const FrictionSawPage = () => {
 
           <div className="grid gap-10 md:grid-cols-2">
             <div>
-              <h3 className="mb-3 text-xl font-semibold">
-                Size Range
-              </h3>
+              <h3 className="mb-3 text-xl font-semibold">Size Range</h3>
 
               <p className="text-blue-100">
                 350mm to 1200mm diameter (14 to 47 inches)
@@ -159,18 +160,16 @@ export const FrictionSawPage = () => {
             </div>
 
             <div>
-              <h3 className="mb-3 text-xl font-semibold">
-                Materials
-              </h3>
+              <h3 className="mb-3 text-xl font-semibold">Materials</h3>
 
               <p className="text-blue-100">
-                Chrome Vanadium Steel or Tungsten Molybdenum Steel,
-                usually over 600mm diameter.
+                Chrome Vanadium Steel or Tungsten Molybdenum Steel, usually over
+                600mm diameter.
               </p>
 
               <p className="mt-4 text-blue-100">
-                Hollow profiled for clearance with standard peg or
-                special tooth forms available.
+                Hollow profiled for clearance with standard peg or special tooth
+                forms available.
               </p>
             </div>
           </div>
@@ -185,9 +184,9 @@ export const FrictionSawPage = () => {
           </h2>
 
           <p className="text-lg leading-relaxed text-slate-600">
-            Blades are precisely machined, levelled and tensioned to ensure
-            even balance, vibration-free operation and accurate cutting at
-            speeds from 4267m/min to 7620m/min (14000 to 25000 ft/min).
+            Blades are precisely machined, levelled and tensioned to ensure even
+            balance, vibration-free operation and accurate cutting at speeds
+            from 4267m/min to 7620m/min (14000 to 25000 ft/min).
           </p>
         </div>
       </section>
@@ -200,33 +199,32 @@ export const FrictionSawPage = () => {
           </h2>
 
           <p className="mb-8 text-lg text-slate-600">
-            Our engineering team can recommend the correct blade
-            specification, tooth profile and operating parameters
-            for your application.
+            Our engineering team can recommend the correct blade specification,
+            tooth profile and operating parameters for your application.
           </p>
 
-          <button className="rounded-lg bg-[#0A4A9E] px-8 py-4 font-semibold text-white hover:bg-[#083a7c]">
+          <button
+            className="rounded-lg bg-[#0A4A9E] px-8 py-4 font-semibold text-white hover:bg-[#083a7c]"
+            onClick={() => setIsQuoteOpen(true)}
+          >
             Request Quote
           </button>
         </div>
       </section>
+      <QuoteModal
+        isOpen={isQuoteOpen}
+        onClose={() => setIsQuoteOpen(false)}
+        source="frictionsaw-page"
+      />
     </div>
   );
 };
 
-function SpecCard({
-  title,
-  value,
-}: {
-  title: string;
-  value: string;
-}) {
+function SpecCard({ title, value }: { title: string; value: string }) {
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
       <p className="text-sm text-slate-500">{title}</p>
-      <h3 className="mt-2 text-xl font-bold text-slate-900">
-        {value}
-      </h3>
+      <h3 className="mt-2 text-xl font-bold text-slate-900">{value}</h3>
     </div>
   );
 }
@@ -248,13 +246,9 @@ function BladeProfileCard({
         className="mb-6 h-20 w-full object-contain"
       />
 
-      <h3 className="mb-3 text-xl font-semibold text-slate-900">
-        {title}
-      </h3>
+      <h3 className="mb-3 text-xl font-semibold text-slate-900">{title}</h3>
 
-      <p className="text-slate-600">
-        {description}
-      </p>
+      <p className="text-slate-600">{description}</p>
     </div>
   );
 }

@@ -15,7 +15,7 @@ const navItems = [
 
 export const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [quoteOpen, setQuoteOpen] = useState(false);
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b bg-white shadow-sm">
@@ -50,7 +50,7 @@ export const Navbar = () => {
 
         {/* Desktop CTA */}
         <button
-          onClick={() => setQuoteOpen(true)}
+          onClick={() => setIsQuoteOpen(true)}
           className="hidden lg:block rounded-lg bg-[#0A4A9E] px-6 py-3 font-semibold text-white transition hover:bg-[#1E63C6]"
         >
           Request Quote
@@ -90,14 +90,18 @@ export const Navbar = () => {
           ))}
 
           <button
-            onClick={() => setQuoteOpen(true)}
+            onClick={() => setIsQuoteOpen(true)}
             className=" rounded-lg bg-[#0A4A9E] px-6 py-3 font-semibold text-white"
           >
             Request Quote
           </button>
         </nav>
       </div>
-      <QuoteModal isOpen={quoteOpen} onClose={() => setQuoteOpen(false)} />
+      <QuoteModal
+        isOpen={isQuoteOpen}
+        onClose={() => setIsQuoteOpen(false)}
+        source="navbar"
+      />
     </header>
   );
 };

@@ -9,20 +9,21 @@ import { QuoteModal } from '@/shared/componets/QuoteModal';
 import { AboutSheffieldSection } from '../sections/AboutSheffieldSection';
 
 export const HomePage = () => {
-  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
 
   return (
     <>
-      <HeroSection onOpenQuote={() => setIsQuoteModalOpen(true)} />
+      <HeroSection onOpenQuote={() => setIsQuoteOpen(true)} />
 
       <CapabilitiesSection />
       <AboutSheffieldSection />
       <ContactCTASection />
 
-      <QuoteModal
-        isOpen={isQuoteModalOpen}
-        onClose={() => setIsQuoteModalOpen(false)}
-      />
+     <QuoteModal
+  isOpen={isQuoteOpen}
+  onClose={() => setIsQuoteOpen(false)}
+  source="homepage-hero"
+/>
     </>
   );
 };

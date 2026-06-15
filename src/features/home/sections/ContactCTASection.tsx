@@ -1,3 +1,4 @@
+import { ContactForm } from '@/shared/componets/ContactForm';
 import { MapPin, Phone } from 'lucide-react';
 
 export const ContactCTASection = () => {
@@ -64,94 +65,12 @@ export const ContactCTASection = () => {
           </div>
 
           {/* Right Side */}
-          <div>
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 md:p-8 shadow-sm">
-              <form className="space-y-6">
-                <div className="grid gap-6 md:grid-cols-2">
-                  <div>
-                    <label className="mb-2 block text-sm font-medium">
-                      Name
-                    </label>
-
-                    <input
-                      type="text"
-                      required
-                      placeholder="Full Name*"
-                      className="w-full rounded-xl border border-[#08306B] px-4 py-3 outline-none transition focus:border-[#0A4A9E]"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-2 block text-sm font-medium">
-                      Company
-                    </label>
-
-                    <input
-                      type="text"
-                      required
-                      placeholder="Company*"
-                      className="w-full rounded-xl border border-[#08306B] px-4 py-3 outline-none transition focus:border-[#0A4A9E]"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-2 block text-sm font-medium">
-                      Email
-                    </label>
-
-                    <input
-                      type="email"
-                      required
-                      placeholder="Email*"
-                      className="w-full rounded-xl border border-[#08306B] px-4 py-3 outline-none transition focus:border-[#0A4A9E]"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-2 block text-sm font-medium">
-                      Phone
-                    </label>
-
-                    <input
-                      type="text"
-                      required
-                      placeholder="Phone*"
-                      className="w-full rounded-xl border border-[#08306B] px-4 py-3 outline-none transition focus:border-[#0A4A9E]"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="mb-2 block text-sm font-medium">
-                    Subject
-                  </label>
-
-                  <input
-                    type="text"
-                    required
-                    placeholder="Subject*"
-                    className="w-full rounded-xl border border-[#08306B] px-4 py-3 outline-none transition focus:border-[#0A4A9E]"
-                  />
-                </div>
-
-                <div>
-                  <label className="mb-2 block text-sm font-medium">
-                    Message
-                  </label>
-
-                  <textarea
-                    rows={6}
-                    required
-                    placeholder="Message*"
-                    className="w-full rounded-xl border border-[#08306B] px-4 py-3 outline-none transition focus:border-[#0A4A9E]"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full rounded-xl bg-[#0A4A9E] px-8 py-4 font-semibold text-white transition hover:bg-[#083a7c]"
-                >
-                  Send Enquiry
-                </button>
-              </form>
-            </div>
+          <div className="rounded-3xl border border-slate-200 bg-white p-6 md:p-8 shadow-sm">
+            <ContactForm
+              type="CONTACT"
+              source="home-page"
+              submitText="Send Enquiry"
+            />
           </div>
         </div>
       </div>

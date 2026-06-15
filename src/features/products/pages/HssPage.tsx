@@ -1,7 +1,10 @@
 import hssHeroImg from '@/assets/images/products/HIGH+SPEED+STEEL+(HSS).webp';
 import toothGeometryImg from '@/assets/images/products/HSS+Tooth+Geometry.webp';
+import { QuoteModal } from '@/shared/componets/QuoteModal';
+import { useState } from 'react';
 
 const HssPage = () => {
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   return (
     <div className="bg-white">
       {/* HERO */}
@@ -141,58 +144,55 @@ const HssPage = () => {
       </section>
 
       {/* TOOTH GEOMETRY + PERFORMANCE */}
-<section className="bg-slate-50 py-20">
-  <div className="mx-auto max-w-7xl px-6">
-    <div className="grid gap-8 lg:grid-cols-2">
+      <section className="bg-slate-50 py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid gap-8 lg:grid-cols-2">
+            {/* Tooth Geometry */}
+            <div className="rounded-3xl border bg-white p-8 shadow-lg">
+              <h2 className="mb-3 text-3xl font-bold text-slate-900">
+                Tooth Geometry
+              </h2>
 
-      {/* Tooth Geometry */}
-      <div className="rounded-3xl border bg-white p-8 shadow-lg">
-        <h2 className="mb-3 text-3xl font-bold text-slate-900">
-          Tooth Geometry
-        </h2>
+              <p className="mb-6 text-slate-600">
+                Various tooth forms available to suit specific cutting
+                applications.
+              </p>
 
-        <p className="mb-6 text-slate-600">
-          Various tooth forms available to suit specific cutting applications.
-        </p>
+              <img
+                src={toothGeometryImg}
+                alt="HSS Tooth Geometry"
+                className="w-full rounded-xl"
+              />
+            </div>
 
-        <img
-          src={toothGeometryImg}
-          alt="HSS Tooth Geometry"
-          className="w-full rounded-xl"
-        />
-      </div>
+            {/* Performance Benefits */}
+            <div className="rounded-3xl bg-[#0A4A9E] p-8 text-white shadow-lg">
+              <h2 className="mb-6 text-3xl font-bold">Performance Benefits</h2>
 
-      {/* Performance Benefits */}
-      <div className="rounded-3xl bg-[#0A4A9E] p-8 text-white shadow-lg">
-        <h2 className="mb-6 text-3xl font-bold">
-          Performance Benefits
-        </h2>
+              <ul className="space-y-5 text-lg text-blue-100">
+                <li>✓ Faster cutting speeds</li>
+                <li>✓ Longer blade life</li>
+                <li>✓ Improved wear resistance</li>
+                <li>✓ Reduced friction and heat generation</li>
+                <li>✓ Excellent cut quality</li>
+                <li>✓ Precision engineered tooth profiles</li>
+                <li>✓ Suitable for high-volume production cutting</li>
+              </ul>
 
-        <ul className="space-y-5 text-lg text-blue-100">
-          <li>✓ Faster cutting speeds</li>
-          <li>✓ Longer blade life</li>
-          <li>✓ Improved wear resistance</li>
-          <li>✓ Reduced friction and heat generation</li>
-          <li>✓ Excellent cut quality</li>
-          <li>✓ Precision engineered tooth profiles</li>
-          <li>✓ Suitable for high-volume production cutting</li>
-        </ul>
+              <div className="mt-8 rounded-2xl bg-white/10 p-5">
+                <h3 className="mb-2 text-lg font-semibold text-white">
+                  Recommended Applications
+                </h3>
 
-        <div className="mt-8 rounded-2xl bg-white/10 p-5">
-          <h3 className="mb-2 text-lg font-semibold text-white">
-            Recommended Applications
-          </h3>
-
-          <p className="text-blue-100">
-            Ferrous metals, non-ferrous metals, stainless steel,
-            alloy steel, aluminium, brass, copper and selected plastics.
-          </p>
+                <p className="text-blue-100">
+                  Ferrous metals, non-ferrous metals, stainless steel, alloy
+                  steel, aluminium, brass, copper and selected plastics.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* CTA */}
       <section className="border-t py-20">
@@ -206,11 +206,19 @@ const HssPage = () => {
             and cutting specifications.
           </p>
 
-          <button className="rounded-lg bg-[#0A4A9E] px-8 py-4 font-semibold text-white hover:bg-[#083a7c]">
+          <button
+            className="rounded-lg bg-[#0A4A9E] px-8 py-4 font-semibold text-white hover:bg-[#083a7c]"
+            onClick={() => setIsQuoteOpen(true)}
+          >
             Request Quote
           </button>
         </div>
       </section>
+      <QuoteModal
+        isOpen={isQuoteOpen}
+        onClose={() => setIsQuoteOpen(false)}
+        source="hss-page"
+      />
     </div>
   );
 };
