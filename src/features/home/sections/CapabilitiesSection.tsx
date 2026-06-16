@@ -1,31 +1,36 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from 'lucide-react';
 
-import circularImg from "@/assets/images/circular.jpeg";
-import bandsawImg from "@/assets/images/bandsaw.jpeg";
-import repairImg from "@/assets/images/repair.jpeg";
+import circularImg from '@/assets/images/circular.jpeg';
+import bandsawImg from '@/assets/images/bandsaw.jpeg';
+import repairImg from '@/assets/images/repair.jpeg';
+import { useNavigate } from 'react-router-dom';
 
 const offerings = [
   {
-    title: "Circular Saw Blades",
+    title: 'Circular Saw Blades',
     description:
-      "Hot Saw, Friction, TCT and Segmental blades manufactured for steel mills and demanding industrial cutting applications.",
+      'Hot Saw, Friction, TCT and Segmental blades manufactured for steel mills and demanding industrial cutting applications.',
     image: circularImg,
+    path: '/products',
   },
   {
-    title: "Bandsaw Blades",
+    title: 'Bandsaw Blades',
     description:
-      "High-performance industrial bandsaw blades engineered for precision cutting, fabrication and production environments.",
+      'High-performance industrial bandsaw blades engineered for precision cutting, fabrication and production environments.',
     image: bandsawImg,
+    path: '/bandsaw',
   },
   {
-    title: "Repair & Servicing",
+    title: 'Repair & Servicing',
     description:
-      "Professional blade sharpening, refurbishment, retoothing and maintenance services to maximise blade performance.",
+      'Professional blade sharpening, refurbishment, retoothing and maintenance services to maximise blade performance.',
     image: repairImg,
+    path: '/reparing',
   },
 ];
 
 export const CapabilitiesSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="bg-slate-50 py-16 md:py-24 lg:py-32 lg:pb-5">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
@@ -40,9 +45,9 @@ export const CapabilitiesSection = () => {
           </h2>
 
           <p className="mt-5 text-base leading-7 text-slate-600 md:text-lg">
-            From precision-engineered circular saw blades to industrial
-            bandsaw solutions and expert repair services trusted by steel
-            mills worldwide.
+            From precision-engineered circular saw blades to industrial bandsaw
+            solutions and expert repair services trusted by steel mills
+            worldwide.
           </p>
         </div>
 
@@ -51,7 +56,8 @@ export const CapabilitiesSection = () => {
           {offerings.map((item) => (
             <article
               key={item.title}
-              className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+              className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
+              onClick={() => navigate(item.path)}
             >
               {/* Image */}
               <div className="relative h-64 overflow-hidden md:h-72">

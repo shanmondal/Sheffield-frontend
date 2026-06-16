@@ -24,6 +24,11 @@ import { PowerRollPage } from '@/features/repairing/pages/PowerRollPage';
 import AdminLogin from '@/features/admin/pages/AdminLogin';
 import AdminLeads from '@/features/admin/pages/AdminLeads';
 import AdminLeadDetails from '@/features/admin/pages/AdminLeadDetails';
+import TctGeneralPage from '@/features/products/pages/TctGeneralPage';
+import TctIndustrialPage from '@/features/products/pages/TctIndustrialPage';
+import TctDiyPage from '@/features/products/pages/TctDiyPage';
+import TctPanelScoringPage from '@/features/products/pages/TctPanelScoringPage';
+import BandsawPage from '@/features/products/pages/BandsawPage';
 
 export const router = createBrowserRouter([
   {
@@ -83,12 +88,30 @@ export const router = createBrowserRouter([
         path: 'products/tct',
         element: <TctPage />,
       },
-
+      {
+        path: 'products/tct/general',
+        element: <TctGeneralPage />,
+      },
+      {
+        path: 'products/tct/industrial',
+        element: <TctIndustrialPage />,
+      },
+      {
+        path: 'products/tct/diy',
+        element: <TctDiyPage />,
+      },
+      {
+        path: 'products/tct/panel-scoring',
+        element: <TctPanelScoringPage />,
+      },
       {
         path: 'products/plate-saw',
         element: <PlateSawPage />,
       },
-
+      {
+        path: 'bandsaw',
+        element: <BandsawPage />,
+      },
       {
         path: 'blog',
         element: <BlogPage />,
@@ -109,7 +132,7 @@ export const router = createBrowserRouter([
     element: <AdminLeads />,
   },
   {
-  path: "/admin/leads/:id",
-  element: <AdminLeadDetails />,
-},
+    path: '/admin/leads/:id',
+    element: <AdminLeadDetails />,
+  },
 ]);

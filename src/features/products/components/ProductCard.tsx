@@ -16,9 +16,10 @@ export const ProductCard = ({
   return (
     <Link
       to={`/products/${slug}`}
-      className="group overflow-hidden rounded-2xl border border-[#08306B] bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+      className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
     >
-      <div className="aspect-[4/3] overflow-hidden">
+      {/* Smaller Image */}
+      <div className="h-52 overflow-hidden">
         <img
           src={image}
           alt={title}
@@ -26,18 +27,20 @@ export const ProductCard = ({
         />
       </div>
 
-      <div className="p-6">
-        <h3 className="mb-3 text-2xl font-semibold text-slate-900">
+      <div className="flex flex-1 flex-col p-5">
+        <h3 className="mb-2 text-xl font-semibold text-slate-900">
           {title}
         </h3>
 
-        <p className="mb-6 text-slate-600">
+        <p className="mb-4 text-sm text-slate-600 line-clamp-3">
           {description}
         </p>
 
-        <span className="font-semibold text-white bg-[#0A4A9E] px-4 py-2 rounded-xl transition hover:bg-[#08306B]">
-          View Product →
-        </span>
+        <div className="mt-auto">
+          <span className="inline-flex rounded-lg bg-[#0A4A9E] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#08306B]">
+            View Product →
+          </span>
+        </div>
       </div>
     </Link>
   );
