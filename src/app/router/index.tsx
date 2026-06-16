@@ -21,6 +21,9 @@ import { PowerGrinderPage } from '@/features/repairing/pages/PowerGrinderPage';
 import { PowerFlamePage } from '@/features/repairing/pages/PowerFlamePage';
 import { MasterGrinderPage } from '@/features/repairing/pages/MasterGrinderPage';
 import { PowerRollPage } from '@/features/repairing/pages/PowerRollPage';
+import AdminLogin from '@/features/admin/pages/AdminLogin';
+import AdminLeads from '@/features/admin/pages/AdminLeads';
+import AdminLeadDetails from '@/features/admin/pages/AdminLeadDetails';
 
 export const router = createBrowserRouter([
   {
@@ -41,21 +44,21 @@ export const router = createBrowserRouter([
         element: <RepairMachineryPage />,
       },
       {
-  path: "reparing/powergrinder",
-  element: <PowerGrinderPage />,
-
-},{
-  path: "reparing/powerflame",
-  element: <PowerFlamePage />,
-},
-{
-  path: "reparing/mastergrinder",
-  element: <MasterGrinderPage />,
-},
-{
-  path: "reparing/powerroll",
-  element: <PowerRollPage />,
-},
+        path: 'reparing/powergrinder',
+        element: <PowerGrinderPage />,
+      },
+      {
+        path: 'reparing/powerflame',
+        element: <PowerFlamePage />,
+      },
+      {
+        path: 'reparing/mastergrinder',
+        element: <MasterGrinderPage />,
+      },
+      {
+        path: 'reparing/powerroll',
+        element: <PowerRollPage />,
+      },
       {
         path: 'products/friction-saw',
         element: <FrictionSawPage />,
@@ -97,4 +100,16 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: '/admin/login',
+    element: <AdminLogin />,
+  },
+  {
+    path: '/admin/leads',
+    element: <AdminLeads />,
+  },
+  {
+  path: "/admin/leads/:id",
+  element: <AdminLeadDetails />,
+},
 ]);
