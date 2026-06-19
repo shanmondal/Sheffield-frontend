@@ -29,6 +29,7 @@ import TctIndustrialPage from '@/features/products/pages/TctIndustrialPage';
 import TctDiyPage from '@/features/products/pages/TctDiyPage';
 import TctPanelScoringPage from '@/features/products/pages/TctPanelScoringPage';
 import BandsawPage from '@/features/products/pages/BandsawPage';
+import AdminProtectedRoute from '@/features/admin/component/AdminProtectedRoute';
 
 export const router = createBrowserRouter([
   {
@@ -129,10 +130,18 @@ export const router = createBrowserRouter([
   },
   {
     path: '/admin/leads',
-    element: <AdminLeads />,
+    element: (
+      <AdminProtectedRoute>
+        <AdminLeads />
+      </AdminProtectedRoute>
+    ),
   },
   {
     path: '/admin/leads/:id',
-    element: <AdminLeadDetails />,
+    element: (
+      <AdminProtectedRoute>
+        <AdminLeadDetails />
+      </AdminProtectedRoute>
+    ),
   },
 ]);
