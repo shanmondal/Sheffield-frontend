@@ -59,9 +59,9 @@ function TypeBadge({ type }: { type?: string }) {
 
 function StatCardSkeleton() {
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-4">
-      <div className="h-3 w-16 animate-pulse rounded bg-slate-200" />
-      <div className="mt-3 h-7 w-12 animate-pulse rounded bg-slate-200" />
+    <div className="rounded-lg border border-slate-200 bg-white p-2 sm:rounded-xl sm:p-4">
+      <div className="h-2.5 w-8 animate-pulse rounded bg-slate-200 sm:h-3 sm:w-16" />
+      <div className="mt-1.5 h-5 w-7 animate-pulse rounded bg-slate-200 sm:mt-3 sm:h-7 sm:w-12" />
     </div>
   );
 }
@@ -80,7 +80,7 @@ function TableRowSkeleton() {
 
 function LeadCardSkeleton() {
   return (
-    <div className="border-b border-slate-100 p-4">
+    <div className="border-b border-slate-100 p-3 sm:p-4">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1 space-y-2.5">
           <div className="h-4 w-32 animate-pulse rounded bg-slate-200" />
@@ -130,12 +130,12 @@ function StatCard({
   accent: string;
 }) {
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-4 transition hover:border-slate-300 hover:shadow-sm">
-      <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
+    <div className="rounded-lg border border-slate-200 bg-white p-2 transition hover:border-slate-300 hover:shadow-sm sm:rounded-xl sm:p-4">
+      <p className="truncate text-[10px] font-medium uppercase tracking-wide text-slate-500 sm:text-xs">
         {label}
       </p>
 
-      <p className={`mt-1.5 text-2xl font-bold tabular-nums ${accent}`}>
+      <p className={`mt-0.5 text-lg font-bold tabular-nums sm:mt-1.5 sm:text-2xl ${accent}`}>
         {value}
       </p>
     </div>
@@ -226,32 +226,32 @@ export default function AdminLeads() {
 
   return (
     <div className="flex h-screen flex-col bg-slate-50">
-      <div className="mx-auto flex h-full w-full max-w-7xl flex-col p-3 sm:p-4 lg:p-6">
+      <div className="mx-auto flex h-full w-full max-w-7xl flex-col p-1.5 sm:p-4 lg:p-6">
         <div className="flex h-full min-h-0 flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
           {/* ----------------------------------------------------------- */}
           {/* Sticky header                                              */}
           {/* ----------------------------------------------------------- */}
           <div className="sticky top-0 z-20 flex-shrink-0 border-b border-slate-200 bg-white">
-            <div className="px-4 pt-5 sm:px-6 sm:pt-6">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <h1 className="text-xl font-bold text-slate-900 sm:text-2xl">
+            <div className="px-3 pt-3 sm:px-6 sm:pt-6">
+              <div className="flex items-center justify-between gap-3">
+                <div className="min-w-0">
+                  <h1 className="truncate text-base font-bold text-slate-900 sm:text-2xl">
                     Leads Dashboard
                   </h1>
 
-                  <p className="mt-0.5 text-sm text-slate-500">
+                  <p className="text-xs text-slate-500 sm:mt-0.5 sm:text-sm">
                     {totalLeads.toLocaleString()} total{' '}
                     {totalLeads === 1 ? 'lead' : 'leads'}
                   </p>
                 </div>
 
-                <div className="flex gap-2">
+                <div className="flex flex-shrink-0 gap-1.5 sm:gap-2">
                   <button
                     onClick={handleExport}
                     disabled={exporting}
-                    className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-emerald-600 px-3.5 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-emerald-600 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-60 sm:px-3.5 sm:py-2 sm:text-sm"
                   >
-                    <Download className="h-4 w-4" strokeWidth={2} />
+                    <Download className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={2} />
                     <span className="hidden sm:inline">
                       {exporting ? 'Exporting…' : 'Export Excel'}
                     </span>
@@ -262,16 +262,16 @@ export default function AdminLeads() {
 
                   <button
                     onClick={handleLogout}
-                    className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3.5 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:bg-slate-50"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-medium text-slate-700 shadow-sm transition hover:bg-slate-50 sm:px-3.5 sm:py-2 sm:text-sm"
                   >
-                    <LogOut className="h-4 w-4" strokeWidth={2} />
+                    <LogOut className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={2} />
                     <span className="hidden sm:inline">Logout</span>
                   </button>
                 </div>
               </div>
 
               {/* Stats */}
-              <div className="mt-5 grid grid-cols-2 gap-3 lg:grid-cols-4">
+              <div className="mt-3 grid grid-cols-4 gap-1.5 sm:mt-5 sm:gap-3">
                 {showSkeleton ? (
                   <>
                     <StatCardSkeleton />
@@ -292,12 +292,12 @@ export default function AdminLeads() {
                       accent="text-[#0A4A9E]"
                     />
                     <StatCard
-                      label="This Week"
+                      label="Week"
                       value={stats.thisWeek}
                       accent="text-[#0A4A9E]"
                     />
                     <StatCard
-                      label="This Month"
+                      label="Month"
                       value={stats.thisMonth}
                       accent="text-[#0A4A9E]"
                     />
@@ -306,8 +306,8 @@ export default function AdminLeads() {
               </div>
 
               {/* Filters */}
-              <div className="mt-5 grid gap-3 pb-5 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr]">
-                <div className="relative">
+              <div className="mt-3 grid grid-cols-2 gap-2 pb-3 sm:mt-5 sm:grid-cols-2 sm:gap-3 sm:pb-5 lg:grid-cols-[2fr_1fr_1fr]">
+                <div className="relative col-span-2 lg:col-span-1">
                   <Search
                     className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
                     strokeWidth={2}
@@ -317,7 +317,7 @@ export default function AdminLeads() {
                     placeholder="Search by name, email, company…"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className="w-full rounded-lg border border-slate-200 bg-slate-50 py-2.5 pl-9 pr-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#0A4A9E] focus:bg-white focus:ring-1 focus:ring-[#0A4A9E]/20"
+                    className="w-full rounded-lg border border-slate-200 bg-slate-50 py-2 pl-9 pr-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#0A4A9E] focus:bg-white focus:ring-1 focus:ring-[#0A4A9E]/20 sm:py-2.5"
                   />
                 </div>
 
@@ -330,7 +330,7 @@ export default function AdminLeads() {
                     type="date"
                     value={startDate}
                     onChange={(e) => setStartDate(e.target.value)}
-                    className="w-full rounded-lg border border-slate-200 bg-slate-50 py-2.5 pl-9 pr-3 text-sm text-slate-900 outline-none transition focus:border-[#0A4A9E] focus:bg-white focus:ring-1 focus:ring-[#0A4A9E]/20"
+                    className="w-full rounded-lg border border-slate-200 bg-slate-50 py-2 pl-9 pr-2 text-xs text-slate-900 outline-none transition focus:border-[#0A4A9E] focus:bg-white focus:ring-1 focus:ring-[#0A4A9E]/20 sm:py-2.5 sm:pr-3 sm:text-sm"
                   />
                 </div>
 
@@ -343,7 +343,7 @@ export default function AdminLeads() {
                     type="date"
                     value={endDate}
                     onChange={(e) => setEndDate(e.target.value)}
-                    className="w-full rounded-lg border border-slate-200 bg-slate-50 py-2.5 pl-9 pr-3 text-sm text-slate-900 outline-none transition focus:border-[#0A4A9E] focus:bg-white focus:ring-1 focus:ring-[#0A4A9E]/20"
+                    className="w-full rounded-lg border border-slate-200 bg-slate-50 py-2 pl-9 pr-2 text-xs text-slate-900 outline-none transition focus:border-[#0A4A9E] focus:bg-white focus:ring-1 focus:ring-[#0A4A9E]/20 sm:py-2.5 sm:pr-3 sm:text-sm"
                   />
                 </div>
               </div>
@@ -453,7 +453,7 @@ export default function AdminLeads() {
                           key={lead.id}
                           to={`/admin/leads/${lead.id}`}
                           state={{ lead }}
-                          className="block border-b border-slate-100 p-4 transition active:bg-slate-50"
+                          className="block border-b border-slate-100 p-3 transition active:bg-slate-50 sm:p-4"
                         >
                           <div className="flex items-start justify-between gap-3">
                             <div className="min-w-0 flex-1">
@@ -526,7 +526,7 @@ export default function AdminLeads() {
           {/* ----------------------------------------------------------- */}
           {/* Sticky footer / pagination                                 */}
           {/* ----------------------------------------------------------- */}
-          <div className="flex-shrink-0 border-t border-slate-200 bg-white px-4 py-3.5 sm:px-6">
+          <div className="flex-shrink-0 border-t border-slate-200 bg-white px-3 py-2.5 sm:px-6 sm:py-3.5">
             <div className="flex items-center justify-between gap-4">
               <button
                 disabled={page === 1}
